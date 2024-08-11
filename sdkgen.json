@@ -1,0 +1,9 @@
+{
+  "type": "client-php",
+  "require": {
+    "deutschland-api/sdk": {
+      "target": "./src",
+      "namespace": "DeutschlandAPI\\SDK"
+    }
+  }
+}
