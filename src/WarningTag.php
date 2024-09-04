@@ -17,7 +17,7 @@ class WarningTag extends TagAbstract
      * Returns all available warnings from the modular warning system (MoWaS)
      *
      * @return WarningCollection
-     * @throws MessageException
+     * @throws ResponseException
      * @throws ClientException
      */
     public function getAll(): WarningCollection
@@ -43,11 +43,11 @@ class WarningTag extends TagAbstract
 
             switch ($e->getResponse()->getStatusCode()) {
                 case 400:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 404:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 500:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 default:
                     throw new UnknownStatusCodeException('The server returned an unknown status code');
             }

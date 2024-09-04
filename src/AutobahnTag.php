@@ -49,7 +49,7 @@ class AutobahnTag extends TagAbstract
      * Returns all available autobahns
      *
      * @return AutobahnCollection
-     * @throws MessageException
+     * @throws ResponseException
      * @throws ClientException
      */
     public function getAll(): AutobahnCollection
@@ -75,11 +75,11 @@ class AutobahnTag extends TagAbstract
 
             switch ($e->getResponse()->getStatusCode()) {
                 case 400:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 404:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 500:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 default:
                     throw new UnknownStatusCodeException('The server returned an unknown status code');
             }

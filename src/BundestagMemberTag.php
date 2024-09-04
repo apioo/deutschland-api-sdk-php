@@ -18,7 +18,7 @@ class BundestagMemberTag extends TagAbstract
      *
      * @param string $memberId
      * @return BundestagMember
-     * @throws MessageException
+     * @throws ResponseException
      * @throws ClientException
      */
     public function get(string $memberId): BundestagMember
@@ -45,11 +45,11 @@ class BundestagMemberTag extends TagAbstract
 
             switch ($e->getResponse()->getStatusCode()) {
                 case 400:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 404:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 500:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 default:
                     throw new UnknownStatusCodeException('The server returned an unknown status code');
             }
@@ -62,7 +62,7 @@ class BundestagMemberTag extends TagAbstract
      * Returns all current members of the Bundestag
      *
      * @return BundestagMemberCollection
-     * @throws MessageException
+     * @throws ResponseException
      * @throws ClientException
      */
     public function getAll(): BundestagMemberCollection
@@ -88,11 +88,11 @@ class BundestagMemberTag extends TagAbstract
 
             switch ($e->getResponse()->getStatusCode()) {
                 case 400:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 404:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 case 500:
-                    throw new MessageException($this->parser->parse($data, Message::class));
+                    throw new ResponseException($this->parser->parse($data, Response::class));
                 default:
                     throw new UnknownStatusCodeException('The server returned an unknown status code');
             }
