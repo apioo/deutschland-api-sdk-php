@@ -15,6 +15,7 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $district = null;
     protected ?string $verb = null;
     protected ?string $gem = null;
+    protected ?string $name = null;
     protected ?string $zipCode = null;
     protected ?int $area = null;
     public function setId(?int $id) : void
@@ -65,6 +66,14 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
     {
         return $this->gem;
     }
+    public function setName(?string $name) : void
+    {
+        $this->name = $name;
+    }
+    public function getName() : ?string
+    {
+        return $this->name;
+    }
     public function setZipCode(?string $zipCode) : void
     {
         $this->zipCode = $zipCode;
@@ -91,6 +100,7 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('district', $this->district);
         $record->put('verb', $this->verb);
         $record->put('gem', $this->gem);
+        $record->put('name', $this->name);
         $record->put('zipCode', $this->zipCode);
         $record->put('area', $this->area);
         return $record;
