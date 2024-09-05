@@ -94,4 +94,9 @@ class Client extends ClientAbstract
     {
         return new self('https://api.deutschland-api.dev/', new Credentials\OAuth2($clientId, $clientSecret, 'https://api.deutschland-api.dev/authorization/token', '', $tokenStore, $scopes));
     }
+
+    public static function buildAnonymous(): self
+    {
+        return new self('https://api.deutschland-api.dev/', new Credentials\Anonymous());
+    }
 }
