@@ -12,10 +12,11 @@ The following example shows how you initialize the client:
 
 require __DIR__ . '/vendor/autoload.php';
 
-$client = new \DeutschlandAPI\SDK\Client::buildAnonymous();
+$client = \DeutschlandAPI\SDK\Client::buildAnonymous();
 
-foreach ($client->city()->getAll() as $city) {
-    echo $city->getState() . "\n";
+$collection = $client->state()->getAll();
+foreach ($collection->getEntries() as $city) {
+    echo $city->getName() . "\n";
 }
 
 ```
