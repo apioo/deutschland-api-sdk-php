@@ -14,6 +14,7 @@ class BundesratMember implements \JsonSerializable, \PSX\Record\RecordableInterf
     protected ?string $name = null;
     protected ?string $party = null;
     protected ?string $state = null;
+    protected ?bool $bundesratMember = null;
     protected ?bool $member = null;
     protected ?bool $designated = null;
     protected ?string $url = null;
@@ -61,6 +62,14 @@ class BundesratMember implements \JsonSerializable, \PSX\Record\RecordableInterf
     public function getState() : ?string
     {
         return $this->state;
+    }
+    public function setBundesratMember(?bool $bundesratMember) : void
+    {
+        $this->bundesratMember = $bundesratMember;
+    }
+    public function getBundesratMember() : ?bool
+    {
+        return $this->bundesratMember;
     }
     public function setMember(?bool $member) : void
     {
@@ -135,6 +144,7 @@ class BundesratMember implements \JsonSerializable, \PSX\Record\RecordableInterf
         $record->put('name', $this->name);
         $record->put('party', $this->party);
         $record->put('state', $this->state);
+        $record->put('bundesratMember', $this->bundesratMember);
         $record->put('member', $this->member);
         $record->put('designated', $this->designated);
         $record->put('url', $this->url);
