@@ -16,6 +16,14 @@ use Sdkgen\Client\TokenStoreInterface;
 
 class Client extends ClientAbstract
 {
+    public function job(): JobTag
+    {
+        return new JobTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
     public function hospital(): HospitalTag
     {
         return new HospitalTag(
