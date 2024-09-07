@@ -16,6 +16,14 @@ use Sdkgen\Client\TokenStoreInterface;
 
 class Client extends ClientAbstract
 {
+    public function hospital(): HospitalTag
+    {
+        return new HospitalTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
     public function warning(): WarningTag
     {
         return new WarningTag(
