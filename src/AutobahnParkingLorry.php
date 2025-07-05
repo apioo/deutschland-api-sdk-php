@@ -21,67 +21,67 @@ class AutobahnParkingLorry implements \JsonSerializable, \PSX\Record\RecordableI
      * @var array<string>|null
      */
     protected ?array $features = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
-    public function setSubtitle(?string $subtitle) : void
+    public function setSubtitle(?string $subtitle): void
     {
         $this->subtitle = $subtitle;
     }
-    public function getSubtitle() : ?string
+    public function getSubtitle(): ?string
     {
         return $this->subtitle;
     }
     /**
      * @param array<string>|null $description
      */
-    public function setDescription(?array $description) : void
+    public function setDescription(?array $description): void
     {
         $this->description = $description;
     }
     /**
      * @return array<string>|null
      */
-    public function getDescription() : ?array
+    public function getDescription(): ?array
     {
         return $this->description;
     }
-    public function setCoordinate(?AutobahnCoordinate $coordinate) : void
+    public function setCoordinate(?AutobahnCoordinate $coordinate): void
     {
         $this->coordinate = $coordinate;
     }
-    public function getCoordinate() : ?AutobahnCoordinate
+    public function getCoordinate(): ?AutobahnCoordinate
     {
         return $this->coordinate;
     }
     /**
      * @param array<string>|null $features
      */
-    public function setFeatures(?array $features) : void
+    public function setFeatures(?array $features): void
     {
         $this->features = $features;
     }
     /**
      * @return array<string>|null
      */
-    public function getFeatures() : ?array
+    public function getFeatures(): ?array
     {
         return $this->features;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -93,7 +93,7 @@ class AutobahnParkingLorry implements \JsonSerializable, \PSX\Record\RecordableI
         $record->put('features', $this->features);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

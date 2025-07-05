@@ -11,30 +11,39 @@ use Sdkgen\Client\ClientAbstract;
 use Sdkgen\Client\Credentials;
 use Sdkgen\Client\CredentialsInterface;
 use Sdkgen\Client\Exception\ClientException;
+use Sdkgen\Client\Exception\Payload;
 use Sdkgen\Client\Exception\UnknownStatusCodeException;
 use Sdkgen\Client\TokenStoreInterface;
 
 class Client extends ClientAbstract
 {
-    public function job(): JobTag
+    public function authorization(): AuthorizationTag
     {
-        return new JobTag(
+        return new AuthorizationTag(
             $this->httpClient,
             $this->parser
         );
     }
 
-    public function hospital(): HospitalTag
+    public function autobahn(): AutobahnTag
     {
-        return new HospitalTag(
+        return new AutobahnTag(
             $this->httpClient,
             $this->parser
         );
     }
 
-    public function warning(): WarningTag
+    public function bundesrat(): BundesratTag
     {
-        return new WarningTag(
+        return new BundesratTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
+    public function bundestag(): BundestagTag
+    {
+        return new BundestagTag(
             $this->httpClient,
             $this->parser
         );
@@ -56,41 +65,17 @@ class Client extends ClientAbstract
         );
     }
 
-    public function state(): StateTag
+    public function hospital(): HospitalTag
     {
-        return new StateTag(
+        return new HospitalTag(
             $this->httpClient,
             $this->parser
         );
     }
 
-    public function bundestag(): BundestagTag
+    public function job(): JobTag
     {
-        return new BundestagTag(
-            $this->httpClient,
-            $this->parser
-        );
-    }
-
-    public function bundesrat(): BundesratTag
-    {
-        return new BundesratTag(
-            $this->httpClient,
-            $this->parser
-        );
-    }
-
-    public function autobahn(): AutobahnTag
-    {
-        return new AutobahnTag(
-            $this->httpClient,
-            $this->parser
-        );
-    }
-
-    public function authorization(): AuthorizationTag
-    {
-        return new AuthorizationTag(
+        return new JobTag(
             $this->httpClient,
             $this->parser
         );
@@ -104,15 +89,31 @@ class Client extends ClientAbstract
         );
     }
 
+    public function state(): StateTag
+    {
+        return new StateTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
+    public function warning(): WarningTag
+    {
+        return new WarningTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
 
 
     public static function build(string $clientId, string $clientSecret, ?TokenStoreInterface $tokenStore = null, ?array $scopes = null): self
     {
-        return new self('https://api.deutschland-api.dev/', new Credentials\OAuth2($clientId, $clientSecret, 'https://api.deutschland-api.dev/authorization/token', '', $tokenStore, $scopes));
+        return new self('http://localhost', new Credentials\OAuth2($clientId, $clientSecret, 'http://localhost/authorization/token', '', $tokenStore, $scopes));
     }
 
     public static function buildAnonymous(): self
     {
-        return new self('https://api.deutschland-api.dev/', new Credentials\Anonymous());
+        return new self('http://localhost', new Credentials\Anonymous());
     }
 }

@@ -22,111 +22,111 @@ class BundesratMember implements \JsonSerializable, \PSX\Record\RecordableInterf
     protected ?string $detail = null;
     protected ?string $bio = null;
     protected ?string $address = null;
-    public function setHonorificTitle(?string $honorificTitle) : void
+    public function setHonorificTitle(?string $honorificTitle): void
     {
         $this->honorificTitle = $honorificTitle;
     }
-    public function getHonorificTitle() : ?string
+    public function getHonorificTitle(): ?string
     {
         return $this->honorificTitle;
     }
-    public function setFirstName(?string $firstName) : void
+    public function setFirstName(?string $firstName): void
     {
         $this->firstName = $firstName;
     }
-    public function getFirstName() : ?string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setParty(?string $party) : void
+    public function setParty(?string $party): void
     {
         $this->party = $party;
     }
-    public function getParty() : ?string
+    public function getParty(): ?string
     {
         return $this->party;
     }
-    public function setState(?string $state) : void
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    public function getState() : ?string
+    public function getState(): ?string
     {
         return $this->state;
     }
-    public function setMember(?bool $member) : void
+    public function setMember(?bool $member): void
     {
         $this->member = $member;
     }
-    public function getMember() : ?bool
+    public function getMember(): ?bool
     {
         return $this->member;
     }
-    public function setDesignated(?bool $designated) : void
+    public function setDesignated(?bool $designated): void
     {
         $this->designated = $designated;
     }
-    public function getDesignated() : ?bool
+    public function getDesignated(): ?bool
     {
         return $this->designated;
     }
-    public function setUrl(?string $url) : void
+    public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
-    public function getUrl() : ?string
+    public function getUrl(): ?string
     {
         return $this->url;
     }
-    public function setImagePath(?string $imagePath) : void
+    public function setImagePath(?string $imagePath): void
     {
         $this->imagePath = $imagePath;
     }
-    public function getImagePath() : ?string
+    public function getImagePath(): ?string
     {
         return $this->imagePath;
     }
-    public function setImageDate(?\PSX\DateTime\LocalDateTime $imageDate) : void
+    public function setImageDate(?\PSX\DateTime\LocalDateTime $imageDate): void
     {
         $this->imageDate = $imageDate;
     }
-    public function getImageDate() : ?\PSX\DateTime\LocalDateTime
+    public function getImageDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->imageDate;
     }
-    public function setDetail(?string $detail) : void
+    public function setDetail(?string $detail): void
     {
         $this->detail = $detail;
     }
-    public function getDetail() : ?string
+    public function getDetail(): ?string
     {
         return $this->detail;
     }
-    public function setBio(?string $bio) : void
+    public function setBio(?string $bio): void
     {
         $this->bio = $bio;
     }
-    public function getBio() : ?string
+    public function getBio(): ?string
     {
         return $this->bio;
     }
-    public function setAddress(?string $address) : void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
-    public function getAddress() : ?string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -145,7 +145,7 @@ class BundesratMember implements \JsonSerializable, \PSX\Record\RecordableInterf
         $record->put('address', $this->address);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

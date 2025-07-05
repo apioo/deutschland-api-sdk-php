@@ -16,45 +16,45 @@ class AutobahnChargingStation implements \JsonSerializable, \PSX\Record\Recordab
      */
     protected ?array $description = null;
     protected ?AutobahnCoordinate $coordinate = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
     /**
      * @param array<string>|null $description
      */
-    public function setDescription(?array $description) : void
+    public function setDescription(?array $description): void
     {
         $this->description = $description;
     }
     /**
      * @return array<string>|null
      */
-    public function getDescription() : ?array
+    public function getDescription(): ?array
     {
         return $this->description;
     }
-    public function setCoordinate(?AutobahnCoordinate $coordinate) : void
+    public function setCoordinate(?AutobahnCoordinate $coordinate): void
     {
         $this->coordinate = $coordinate;
     }
-    public function getCoordinate() : ?AutobahnCoordinate
+    public function getCoordinate(): ?AutobahnCoordinate
     {
         return $this->coordinate;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -64,7 +64,7 @@ class AutobahnChargingStation implements \JsonSerializable, \PSX\Record\Recordab
         $record->put('coordinate', $this->coordinate);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

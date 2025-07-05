@@ -9,6 +9,6 @@ namespace DeutschlandAPI\SDK;
 /**
  * @extends Collection<Job>
  */
-class JobCollection extends Collection
+class JobCollection extends Collection implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
 }

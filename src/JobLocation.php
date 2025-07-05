@@ -14,47 +14,47 @@ class JobLocation implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $state = null;
     protected ?string $country = null;
     protected ?JobCoordinate $coordinate = null;
-    public function setZip(?string $zip) : void
+    public function setZip(?string $zip): void
     {
         $this->zip = $zip;
     }
-    public function getZip() : ?string
+    public function getZip(): ?string
     {
         return $this->zip;
     }
-    public function setPlace(?string $place) : void
+    public function setPlace(?string $place): void
     {
         $this->place = $place;
     }
-    public function getPlace() : ?string
+    public function getPlace(): ?string
     {
         return $this->place;
     }
-    public function setState(?string $state) : void
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    public function getState() : ?string
+    public function getState(): ?string
     {
         return $this->state;
     }
-    public function setCountry(?string $country) : void
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
-    public function getCountry() : ?string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
-    public function setCoordinate(?JobCoordinate $coordinate) : void
+    public function setCoordinate(?JobCoordinate $coordinate): void
     {
         $this->coordinate = $coordinate;
     }
-    public function getCoordinate() : ?JobCoordinate
+    public function getCoordinate(): ?JobCoordinate
     {
         return $this->coordinate;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -65,7 +65,7 @@ class JobLocation implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('coordinate', $this->coordinate);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

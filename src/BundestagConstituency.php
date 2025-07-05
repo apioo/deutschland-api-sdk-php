@@ -11,23 +11,23 @@ class BundestagConstituency implements \JsonSerializable, \PSX\Record\Recordable
 {
     protected ?string $number = null;
     protected ?string $name = null;
-    public function setNumber(?string $number) : void
+    public function setNumber(?string $number): void
     {
         $this->number = $number;
     }
-    public function getNumber() : ?string
+    public function getNumber(): ?string
     {
         return $this->number;
     }
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -35,7 +35,7 @@ class BundestagConstituency implements \JsonSerializable, \PSX\Record\Recordable
         $record->put('name', $this->name);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

@@ -13,39 +13,39 @@ class JobCoordinate implements \JsonSerializable, \PSX\Record\RecordableInterfac
     protected ?string $title = null;
     protected ?string $address = null;
     protected ?string $link = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
-    public function setAddress(?string $address) : void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
-    public function getAddress() : ?string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
-    public function setLink(?string $link) : void
+    public function setLink(?string $link): void
     {
         $this->link = $link;
     }
-    public function getLink() : ?string
+    public function getLink(): ?string
     {
         return $this->link;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -55,7 +55,7 @@ class JobCoordinate implements \JsonSerializable, \PSX\Record\RecordableInterfac
         $record->put('link', $this->link);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

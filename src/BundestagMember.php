@@ -20,95 +20,95 @@ class BundestagMember implements \JsonSerializable, \PSX\Record\RecordableInterf
     protected ?string $photoLarge = null;
     protected ?\PSX\DateTime\LocalDateTime $photoLastChanged = null;
     protected ?\PSX\DateTime\LocalDateTime $lastChanged = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setParty(?string $party) : void
+    public function setParty(?string $party): void
     {
         $this->party = $party;
     }
-    public function getParty() : ?string
+    public function getParty(): ?string
     {
         return $this->party;
     }
-    public function setBioUrl(?string $bioUrl) : void
+    public function setBioUrl(?string $bioUrl): void
     {
         $this->bioUrl = $bioUrl;
     }
-    public function getBioUrl() : ?string
+    public function getBioUrl(): ?string
     {
         return $this->bioUrl;
     }
-    public function setState(?string $state) : void
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    public function getState() : ?string
+    public function getState(): ?string
     {
         return $this->state;
     }
-    public function setConstituency(?BundestagConstituency $constituency) : void
+    public function setConstituency(?BundestagConstituency $constituency): void
     {
         $this->constituency = $constituency;
     }
-    public function getConstituency() : ?BundestagConstituency
+    public function getConstituency(): ?BundestagConstituency
     {
         return $this->constituency;
     }
-    public function setElected(?string $elected) : void
+    public function setElected(?string $elected): void
     {
         $this->elected = $elected;
     }
-    public function getElected() : ?string
+    public function getElected(): ?string
     {
         return $this->elected;
     }
-    public function setPhoto(?string $photo) : void
+    public function setPhoto(?string $photo): void
     {
         $this->photo = $photo;
     }
-    public function getPhoto() : ?string
+    public function getPhoto(): ?string
     {
         return $this->photo;
     }
-    public function setPhotoLarge(?string $photoLarge) : void
+    public function setPhotoLarge(?string $photoLarge): void
     {
         $this->photoLarge = $photoLarge;
     }
-    public function getPhotoLarge() : ?string
+    public function getPhotoLarge(): ?string
     {
         return $this->photoLarge;
     }
-    public function setPhotoLastChanged(?\PSX\DateTime\LocalDateTime $photoLastChanged) : void
+    public function setPhotoLastChanged(?\PSX\DateTime\LocalDateTime $photoLastChanged): void
     {
         $this->photoLastChanged = $photoLastChanged;
     }
-    public function getPhotoLastChanged() : ?\PSX\DateTime\LocalDateTime
+    public function getPhotoLastChanged(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->photoLastChanged;
     }
-    public function setLastChanged(?\PSX\DateTime\LocalDateTime $lastChanged) : void
+    public function setLastChanged(?\PSX\DateTime\LocalDateTime $lastChanged): void
     {
         $this->lastChanged = $lastChanged;
     }
-    public function getLastChanged() : ?\PSX\DateTime\LocalDateTime
+    public function getLastChanged(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->lastChanged;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -125,7 +125,7 @@ class BundestagMember implements \JsonSerializable, \PSX\Record\RecordableInterf
         $record->put('lastChanged', $this->lastChanged);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

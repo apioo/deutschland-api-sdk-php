@@ -16,63 +16,63 @@ class Job implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $employer = null;
     protected ?\PSX\DateTime\LocalDateTime $publishDate = null;
     protected ?\PSX\DateTime\LocalDateTime $entranceDate = null;
-    public function setJob(?string $job) : void
+    public function setJob(?string $job): void
     {
         $this->job = $job;
     }
-    public function getJob() : ?string
+    public function getJob(): ?string
     {
         return $this->job;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
-    public function setNumber(?string $number) : void
+    public function setNumber(?string $number): void
     {
         $this->number = $number;
     }
-    public function getNumber() : ?string
+    public function getNumber(): ?string
     {
         return $this->number;
     }
-    public function setLocation(?JobLocation $location) : void
+    public function setLocation(?JobLocation $location): void
     {
         $this->location = $location;
     }
-    public function getLocation() : ?JobLocation
+    public function getLocation(): ?JobLocation
     {
         return $this->location;
     }
-    public function setEmployer(?string $employer) : void
+    public function setEmployer(?string $employer): void
     {
         $this->employer = $employer;
     }
-    public function getEmployer() : ?string
+    public function getEmployer(): ?string
     {
         return $this->employer;
     }
-    public function setPublishDate(?\PSX\DateTime\LocalDateTime $publishDate) : void
+    public function setPublishDate(?\PSX\DateTime\LocalDateTime $publishDate): void
     {
         $this->publishDate = $publishDate;
     }
-    public function getPublishDate() : ?\PSX\DateTime\LocalDateTime
+    public function getPublishDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->publishDate;
     }
-    public function setEntranceDate(?\PSX\DateTime\LocalDateTime $entranceDate) : void
+    public function setEntranceDate(?\PSX\DateTime\LocalDateTime $entranceDate): void
     {
         $this->entranceDate = $entranceDate;
     }
-    public function getEntranceDate() : ?\PSX\DateTime\LocalDateTime
+    public function getEntranceDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->entranceDate;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -85,7 +85,7 @@ class Job implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('entranceDate', $this->entranceDate);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

@@ -24,91 +24,91 @@ class AutobahnWarning implements \JsonSerializable, \PSX\Record\RecordableInterf
      * @var array<AutobahnCoordinate>|null
      */
     protected ?array $lineString = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setBlocked(?bool $blocked) : void
+    public function setBlocked(?bool $blocked): void
     {
         $this->blocked = $blocked;
     }
-    public function getBlocked() : ?bool
+    public function getBlocked(): ?bool
     {
         return $this->blocked;
     }
-    public function setFuture(?bool $future) : void
+    public function setFuture(?bool $future): void
     {
         $this->future = $future;
     }
-    public function getFuture() : ?bool
+    public function getFuture(): ?bool
     {
         return $this->future;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
-    public function setSubtitle(?string $subtitle) : void
+    public function setSubtitle(?string $subtitle): void
     {
         $this->subtitle = $subtitle;
     }
-    public function getSubtitle() : ?string
+    public function getSubtitle(): ?string
     {
         return $this->subtitle;
     }
     /**
      * @param array<string>|null $description
      */
-    public function setDescription(?array $description) : void
+    public function setDescription(?array $description): void
     {
         $this->description = $description;
     }
     /**
      * @return array<string>|null
      */
-    public function getDescription() : ?array
+    public function getDescription(): ?array
     {
         return $this->description;
     }
-    public function setStartDate(?\PSX\DateTime\LocalDateTime $startDate) : void
+    public function setStartDate(?\PSX\DateTime\LocalDateTime $startDate): void
     {
         $this->startDate = $startDate;
     }
-    public function getStartDate() : ?\PSX\DateTime\LocalDateTime
+    public function getStartDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->startDate;
     }
-    public function setCoordinate(?AutobahnCoordinate $coordinate) : void
+    public function setCoordinate(?AutobahnCoordinate $coordinate): void
     {
         $this->coordinate = $coordinate;
     }
-    public function getCoordinate() : ?AutobahnCoordinate
+    public function getCoordinate(): ?AutobahnCoordinate
     {
         return $this->coordinate;
     }
     /**
      * @param array<AutobahnCoordinate>|null $lineString
      */
-    public function setLineString(?array $lineString) : void
+    public function setLineString(?array $lineString): void
     {
         $this->lineString = $lineString;
     }
     /**
      * @return array<AutobahnCoordinate>|null
      */
-    public function getLineString() : ?array
+    public function getLineString(): ?array
     {
         return $this->lineString;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -123,7 +123,7 @@ class AutobahnWarning implements \JsonSerializable, \PSX\Record\RecordableInterf
         $record->put('lineString', $this->lineString);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

@@ -18,79 +18,79 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $name = null;
     protected ?string $zipCode = null;
     protected ?int $area = null;
-    public function setId(?int $id) : void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?int
+    public function getId(): ?int
     {
         return $this->id;
     }
-    public function setState(?string $state) : void
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    public function getState() : ?string
+    public function getState(): ?string
     {
         return $this->state;
     }
-    public function setRb(?string $rb) : void
+    public function setRb(?string $rb): void
     {
         $this->rb = $rb;
     }
-    public function getRb() : ?string
+    public function getRb(): ?string
     {
         return $this->rb;
     }
-    public function setDistrict(?string $district) : void
+    public function setDistrict(?string $district): void
     {
         $this->district = $district;
     }
-    public function getDistrict() : ?string
+    public function getDistrict(): ?string
     {
         return $this->district;
     }
-    public function setVerb(?string $verb) : void
+    public function setVerb(?string $verb): void
     {
         $this->verb = $verb;
     }
-    public function getVerb() : ?string
+    public function getVerb(): ?string
     {
         return $this->verb;
     }
-    public function setGem(?string $gem) : void
+    public function setGem(?string $gem): void
     {
         $this->gem = $gem;
     }
-    public function getGem() : ?string
+    public function getGem(): ?string
     {
         return $this->gem;
     }
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setZipCode(?string $zipCode) : void
+    public function setZipCode(?string $zipCode): void
     {
         $this->zipCode = $zipCode;
     }
-    public function getZipCode() : ?string
+    public function getZipCode(): ?string
     {
         return $this->zipCode;
     }
-    public function setArea(?int $area) : void
+    public function setArea(?int $area): void
     {
         $this->area = $area;
     }
-    public function getArea() : ?int
+    public function getArea(): ?int
     {
         return $this->area;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -105,7 +105,7 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('area', $this->area);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

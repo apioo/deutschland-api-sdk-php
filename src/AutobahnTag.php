@@ -8,22 +8,15 @@ namespace DeutschlandAPI\SDK;
 
 use GuzzleHttp\Exception\BadResponseException;
 use Sdkgen\Client\Exception\ClientException;
+use Sdkgen\Client\Exception\Payload;
 use Sdkgen\Client\Exception\UnknownStatusCodeException;
 use Sdkgen\Client\TagAbstract;
 
 class AutobahnTag extends TagAbstract
 {
-    public function warning(): AutobahnWarningTag
+    public function chargingStation(): AutobahnChargingStationTag
     {
-        return new AutobahnWarningTag(
-            $this->httpClient,
-            $this->parser
-        );
-    }
-
-    public function parkingLorry(): AutobahnParkingLorryTag
-    {
-        return new AutobahnParkingLorryTag(
+        return new AutobahnChargingStationTag(
             $this->httpClient,
             $this->parser
         );
@@ -37,9 +30,17 @@ class AutobahnTag extends TagAbstract
         );
     }
 
-    public function chargingStation(): AutobahnChargingStationTag
+    public function parkingLorry(): AutobahnParkingLorryTag
     {
-        return new AutobahnChargingStationTag(
+        return new AutobahnParkingLorryTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
+    public function warning(): AutobahnWarningTag
+    {
+        return new AutobahnWarningTag(
             $this->httpClient,
             $this->parser
         );
@@ -58,6 +59,8 @@ class AutobahnTag extends TagAbstract
         ]);
 
         $options = [
+            'headers' => [
+            ],
             'query' => $this->parser->query([
             ], [
             ]),
@@ -65,28 +68,41 @@ class AutobahnTag extends TagAbstract
 
         try {
             $response = $this->httpClient->request('GET', $url, $options);
-            $data = (string) $response->getBody();
+            $body = $response->getBody();
 
-            return $this->parser->parse($data, AutobahnCollection::class);
+            $data = $this->parser->parse((string) $body, \PSX\Schema\SchemaSource::fromClass(AutobahnCollection::class));
+
+            return $data;
         } catch (ClientException $e) {
             throw $e;
         } catch (BadResponseException $e) {
-            $data = (string) $e->getResponse()->getBody();
+            $body = $e->getResponse()->getBody();
+            $statusCode = $e->getResponse()->getStatusCode();
 
-            switch ($e->getResponse()->getStatusCode()) {
-                case 400:
-                    throw new ResponseException($this->parser->parse($data, Response::class));
-                case 404:
-                    throw new ResponseException($this->parser->parse($data, Response::class));
-                case 500:
-                    throw new ResponseException($this->parser->parse($data, Response::class));
-                default:
-                    throw new UnknownStatusCodeException('The server returned an unknown status code');
+            if ($statusCode === 400) {
+                $data = $this->parser->parse((string) $body, \PSX\Schema\SchemaSource::fromClass(Response::class));
+
+                throw new ResponseException($data);
             }
+
+            if ($statusCode === 404) {
+                $data = $this->parser->parse((string) $body, \PSX\Schema\SchemaSource::fromClass(Response::class));
+
+                throw new ResponseException($data);
+            }
+
+            if ($statusCode === 500) {
+                $data = $this->parser->parse((string) $body, \PSX\Schema\SchemaSource::fromClass(Response::class));
+
+                throw new ResponseException($data);
+            }
+
+            throw new UnknownStatusCodeException('The server returned an unknown status code: ' . $statusCode);
         } catch (\Throwable $e) {
             throw new ClientException('An unknown error occurred: ' . $e->getMessage());
         }
     }
+
 
 
 }

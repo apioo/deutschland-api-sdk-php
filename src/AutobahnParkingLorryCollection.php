@@ -16,25 +16,25 @@ class AutobahnParkingLorryCollection implements \JsonSerializable, \PSX\Record\R
     /**
      * @param array<AutobahnParkingLorry>|null $entries
      */
-    public function setEntries(?array $entries) : void
+    public function setEntries(?array $entries): void
     {
         $this->entries = $entries;
     }
     /**
      * @return array<AutobahnParkingLorry>|null
      */
-    public function getEntries() : ?array
+    public function getEntries(): ?array
     {
         return $this->entries;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
         $record->put('entries', $this->entries);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

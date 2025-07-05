@@ -16,63 +16,63 @@ class Warning implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $title = null;
     protected ?\PSX\DateTime\LocalDateTime $startDate = null;
     protected ?\PSX\DateTime\LocalDateTime $expiresDate = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setSeverity(?string $severity) : void
+    public function setSeverity(?string $severity): void
     {
         $this->severity = $severity;
     }
-    public function getSeverity() : ?string
+    public function getSeverity(): ?string
     {
         return $this->severity;
     }
-    public function setUrgency(?string $urgency) : void
+    public function setUrgency(?string $urgency): void
     {
         $this->urgency = $urgency;
     }
-    public function getUrgency() : ?string
+    public function getUrgency(): ?string
     {
         return $this->urgency;
     }
-    public function setType(?string $type) : void
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    public function getType() : ?string
+    public function getType(): ?string
     {
         return $this->type;
     }
-    public function setTitle(?string $title) : void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    public function getTitle() : ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
-    public function setStartDate(?\PSX\DateTime\LocalDateTime $startDate) : void
+    public function setStartDate(?\PSX\DateTime\LocalDateTime $startDate): void
     {
         $this->startDate = $startDate;
     }
-    public function getStartDate() : ?\PSX\DateTime\LocalDateTime
+    public function getStartDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->startDate;
     }
-    public function setExpiresDate(?\PSX\DateTime\LocalDateTime $expiresDate) : void
+    public function setExpiresDate(?\PSX\DateTime\LocalDateTime $expiresDate): void
     {
         $this->expiresDate = $expiresDate;
     }
-    public function getExpiresDate() : ?\PSX\DateTime\LocalDateTime
+    public function getExpiresDate(): ?\PSX\DateTime\LocalDateTime
     {
         return $this->expiresDate;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -85,7 +85,7 @@ class Warning implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('expiresDate', $this->expiresDate);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

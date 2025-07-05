@@ -11,23 +11,23 @@ class AutobahnCoordinate implements \JsonSerializable, \PSX\Record\RecordableInt
 {
     protected ?string $lat = null;
     protected ?string $long = null;
-    public function setLat(?string $lat) : void
+    public function setLat(?string $lat): void
     {
         $this->lat = $lat;
     }
-    public function getLat() : ?string
+    public function getLat(): ?string
     {
         return $this->lat;
     }
-    public function setLong(?string $long) : void
+    public function setLong(?string $long): void
     {
         $this->long = $long;
     }
-    public function getLong() : ?string
+    public function getLong(): ?string
     {
         return $this->long;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -35,7 +35,7 @@ class AutobahnCoordinate implements \JsonSerializable, \PSX\Record\RecordableInt
         $record->put('long', $this->long);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

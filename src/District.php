@@ -20,55 +20,55 @@ class District implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $nuts = null;
     #[Description('Size of the area in km2')]
     protected ?int $area = null;
-    public function setId(?string $id) : void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function getId() : ?string
+    public function getId(): ?string
     {
         return $this->id;
     }
-    public function setState(?string $state) : void
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    public function getState() : ?string
+    public function getState(): ?string
     {
         return $this->state;
     }
-    public function setType(?string $type) : void
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    public function getType() : ?string
+    public function getType(): ?string
     {
         return $this->type;
     }
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setNuts(?string $nuts) : void
+    public function setNuts(?string $nuts): void
     {
         $this->nuts = $nuts;
     }
-    public function getNuts() : ?string
+    public function getNuts(): ?string
     {
         return $this->nuts;
     }
-    public function setArea(?int $area) : void
+    public function setArea(?int $area): void
     {
         $this->area = $area;
     }
-    public function getArea() : ?int
+    public function getArea(): ?int
     {
         return $this->area;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -80,7 +80,7 @@ class District implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('area', $this->area);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

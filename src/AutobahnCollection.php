@@ -16,25 +16,25 @@ class AutobahnCollection implements \JsonSerializable, \PSX\Record\RecordableInt
     /**
      * @param array<string>|null $roads
      */
-    public function setRoads(?array $roads) : void
+    public function setRoads(?array $roads): void
     {
         $this->roads = $roads;
     }
     /**
      * @return array<string>|null
      */
-    public function getRoads() : ?array
+    public function getRoads(): ?array
     {
         return $this->roads;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
         $record->put('roads', $this->roads);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }
