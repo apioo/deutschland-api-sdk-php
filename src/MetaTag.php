@@ -15,6 +15,8 @@ use Sdkgen\Client\TagAbstract;
 class MetaTag extends TagAbstract
 {
     /**
+     * Returns meta information and links about the current installed Fusio version
+     *
      * @return SystemAbout
      * @throws CommonMessageException
      * @throws ClientException

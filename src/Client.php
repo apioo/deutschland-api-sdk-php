@@ -109,7 +109,7 @@ class Client extends ClientAbstract
 
     public static function build(string $clientId, string $clientSecret, ?TokenStoreInterface $tokenStore = null, ?array $scopes = null): self
     {
-        return new self('http://localhost', new Credentials\OAuth2($clientId, $clientSecret, 'http://localhost/authorization/token', '', $tokenStore, $scopes));
+        return new self('http://localhost', new Credentials\OAuth2($clientId, $clientSecret, 'http://localhost/authorization/token', 'http://localhost/authorization/authorize', $tokenStore, $scopes));
     }
 
     public static function buildAnonymous(): self
