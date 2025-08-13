@@ -109,11 +109,11 @@ class Client extends ClientAbstract
 
     public static function build(string $clientId, string $clientSecret, ?TokenStoreInterface $tokenStore = null, ?array $scopes = null): self
     {
-        return new self('http://localhost', new Credentials\OAuth2($clientId, $clientSecret, 'http://localhost/authorization/token', 'http://localhost/authorization/authorize', $tokenStore, $scopes));
+        return new self('https://api.deutschland-api.dev', new Credentials\OAuth2($clientId, $clientSecret, 'https://api.deutschland-api.dev/authorization/token', 'https://api.deutschland-api.dev/authorization/authorize', $tokenStore, $scopes));
     }
 
     public static function buildAnonymous(): self
     {
-        return new self('http://localhost', new Credentials\Anonymous());
+        return new self('https://api.deutschland-api.dev', new Credentials\Anonymous());
     }
 }
