@@ -15,7 +15,7 @@ use Sdkgen\Client\TagAbstract;
 class BundestagMemberTag extends TagAbstract
 {
     /**
-     * Returns specific member of the Bundestag
+     * Returns a specific member of the Bundestag
      *
      * @param string $memberId
      * @return BundestagMember
