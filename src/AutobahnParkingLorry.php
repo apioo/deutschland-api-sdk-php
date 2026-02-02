@@ -81,6 +81,9 @@ class AutobahnParkingLorry implements \JsonSerializable, \PSX\Record\RecordableI
     {
         return $this->features;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

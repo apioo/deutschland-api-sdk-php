@@ -27,6 +27,9 @@ class BundesratMemberCollection implements \JsonSerializable, \PSX\Record\Record
     {
         return $this->entries;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

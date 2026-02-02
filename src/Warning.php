@@ -72,6 +72,9 @@ class Warning implements \JsonSerializable, \PSX\Record\RecordableInterface
     {
         return $this->expiresDate;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

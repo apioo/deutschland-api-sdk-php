@@ -89,6 +89,14 @@ class Client extends ClientAbstract
         );
     }
 
+    public function news(): NewsTag
+    {
+        return new NewsTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
     public function state(): StateTag
     {
         return new StateTag(
