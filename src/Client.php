@@ -33,6 +33,14 @@ class Client extends ClientAbstract
         );
     }
 
+    public function budget(): BudgetTag
+    {
+        return new BudgetTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
     public function bundesrat(): BundesratTag
     {
         return new BundesratTag(
