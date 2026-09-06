@@ -45,6 +45,9 @@ class JobCoordinate implements \JsonSerializable, \PSX\Record\RecordableInterfac
     {
         return $this->link;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

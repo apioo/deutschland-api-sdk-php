@@ -72,6 +72,9 @@ class Job implements \JsonSerializable, \PSX\Record\RecordableInterface
     {
         return $this->entranceDate;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

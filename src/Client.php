@@ -33,6 +33,14 @@ class Client extends ClientAbstract
         );
     }
 
+    public function budget(): BudgetTag
+    {
+        return new BudgetTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
     public function bundesrat(): BundesratTag
     {
         return new BundesratTag(
@@ -84,6 +92,14 @@ class Client extends ClientAbstract
     public function meta(): MetaTag
     {
         return new MetaTag(
+            $this->httpClient,
+            $this->parser
+        );
+    }
+
+    public function news(): NewsTag
+    {
+        return new NewsTag(
             $this->httpClient,
             $this->parser
         );

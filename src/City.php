@@ -90,6 +90,9 @@ class City implements \JsonSerializable, \PSX\Record\RecordableInterface
     {
         return $this->area;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

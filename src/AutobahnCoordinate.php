@@ -27,6 +27,9 @@ class AutobahnCoordinate implements \JsonSerializable, \PSX\Record\RecordableInt
     {
         return $this->long;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

@@ -27,6 +27,9 @@ class AutobahnCollection implements \JsonSerializable, \PSX\Record\RecordableInt
     {
         return $this->roads;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
