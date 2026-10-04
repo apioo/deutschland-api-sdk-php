@@ -1,0 +1,6 @@
+{
+  "name": "deutschlandapi/sdk",
+  "description": "DeutschlandAPI PHP SDK managed by SDK Fabric",
+  "namespace": "DeutschlandAPI\\SDK",
+  "website": "https://sdk-fabric.org"
+}
